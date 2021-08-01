@@ -150,7 +150,7 @@
       </div>
     @endcan
     @can('user_access')
-      <div class="pb-2 pb-3 space-y-1">
+      <div class="pb-3 space-y-1">
         <x-jet-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
           {{ __('Users') }}
         </x-jet-responsive-nav-link>
