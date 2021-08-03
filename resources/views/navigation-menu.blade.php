@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="sticky top-0 bg-white border-b border-gray-100">
   <!-- Primary Navigation Menu -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
@@ -11,20 +11,20 @@
         </div>
 
         <!-- Navigation Links -->
-        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+        <div class="flex md:space-x-8 sm:-my-px ml-10 md:hidden">
           <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
             {{ __('Home') }}
           </x-jet-nav-link>
         </div>
         @can('lab_access')
-          <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+          <div class="flex md:space-x-8 sm:-my-px ml-10 md:hidden">
             <x-jet-nav-link href="{{ route('labs.index') }}" :active="request()->routeIs('labs.*')">
               Laboratorium
             </x-jet-nav-link>
           </div>
         @endcan
         @can('user_access')
-          <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+          <div class="flex md:space-x-8 sm:-my-px ml-10 md:hidden">
             <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
               Users
             </x-jet-nav-link>
@@ -33,7 +33,7 @@
       </div>
 
       <!-- Settings Dropdown -->
-      <div class="hidden sm:flex sm:items-center sm:ml-6">
+      <div class="flex md:hidden items-center ml-6">
         <x-jet-dropdown align="right" width="48">
           <x-slot name="trigger">
             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -121,7 +121,7 @@
       </div>
 
       <!-- Hamburger -->
-      <div class="-mr-2 flex items-center sm:hidden">
+      <div class="md:-mr-2 md:flex md:items-center hidden">
         <button @click="open = ! open"
           class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
           <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -136,7 +136,7 @@
   </div>
 
   <!-- Responsive Navigation Menu -->
-  <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+  <div :class="{'block': open, 'hidden': ! open}" class="hidden">
     <div class="py-2 space-y-1">
       <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
         {{ __('Home') }}
