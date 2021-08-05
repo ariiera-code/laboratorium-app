@@ -1,0 +1,38 @@
+body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(79, 70, 229, 1) rgba(20, 20, 20, 0.075);
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(79, 70, 229, 1);
+}
+
+ul::-webkit-scrollbar {
+  height: 0.25rem;
+}
+
+ul::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: rgba(79, 70, 229, 0.5);
+}
+
+.f-outline input:focus-within ~ label,
+    .f-outline input:not(:placeholder-shown) ~ label {
+        transform: translateY(-1.5rem) translatex(-1rem) scaleX(0.80) scaleY(0.80);
+    }
+
+.f-outline textarea:focus-within ~ label,
+    .f-outline textarea:not(:placeholder-shown) ~ label {
+        transform: translateY(-1.5rem) translatex(-1rem) scaleX(0.80) scaleY(0.80);
+    }

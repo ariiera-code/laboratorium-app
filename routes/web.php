@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LabsController;
+use App\Http\Controllers\PlacesController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -26,4 +27,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('labs', LabsController::class);
     Route::resource('users', UsersController::class);
+    Route::resource('places', PlacesController::class);
 });

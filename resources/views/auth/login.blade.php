@@ -6,7 +6,6 @@
         <img class="w-full" src="{{ 'images/authbg.jpg' }}">
       </div>
       <div class="flex items-center px-6 py-auto w-2/5">
-        <x-jet-validation-errors class="mb-4" />
 
         @if (session('status'))
           <div class="mb-4 font-medium text-sm text-green-600">
@@ -26,6 +25,8 @@
               laboratory</p>
           </div>
 
+          <x-jet-validation-errors class="mb-4" />
+
           {{-- Email input --}}
           <div>
             <x-jet-label for="email" value="{{ __('Email/Username') }}" />
@@ -44,7 +45,7 @@
                 </svg>
               </span>
               <input type="email" name="email" id="email"
-                class="block mt-1 w-full pl-11 placeholder-gray-400 border-gray-300 text-gray-800 hover:ring-0 hover:ring-inset hover:ring-indigo-200 focus:text-gray-800 focus:ring-0 focus:ring-inset focus:ring-indigo-400 rounded-md shadow-sm transition"
+                class="block mt-1 w-full pl-11 placeholder-gray-400 border-gray-300 text-gray-800 hover:ring-0 hover:ring-inset hover:ring-indigo-200 focus:text-gray-800 focus:ring-1 focus:ring-inset focus:ring-indigo-400 rounded-md shadow-sm transition"
                 placeholder="kevin@example.com" autocomplete="on" :value="old('email')" required autofocus>
             </div>
           </div>
@@ -70,7 +71,7 @@
                 </svg>
               </span>
               <input type="password" name="password" id="password"
-                class="block mt-1 w-full pl-11 placeholder-gray-400 border-gray-300 text-gray-800 hover:ring-0 hover:ring-inset hover:ring-indigo-200 focus:text-gray-800 focus:ring-0 focus:ring-inset focus:ring-indigo-400 rounded-md shadow-sm transition"
+                class="block mt-1 w-full pl-11 placeholder-gray-400 border-gray-300 text-gray-800 hover:ring-0 hover:ring-inset hover:ring-indigo-200 focus:text-gray-800 focus:ring-1 focus:ring-inset focus:ring-indigo-400 rounded-md shadow-sm transition"
                 placeholder="Password" required autocomplete="current-password">
             </div>
           </div>
@@ -150,7 +151,7 @@
                     </svg>
                   </span>
                   <input type="email" name="email" id="email"
-                    class="block mt-1 w-full pl-11 placeholder-gray-400 border-gray-300 text-gray-800 hover:ring-0 hover:ring-inset hover:ring-indigo-200 focus:text-gray-800 focus:ring-0 focus:ring-inset focus:ring-indigo-400 rounded-md shadow-sm transition"
+                    class="block mt-1 w-full pl-11 placeholder-gray-400 border-gray-300 text-gray-800 hover:ring-0 hover:ring-inset hover:ring-indigo-200 focus:text-gray-800 focus:ring-1 focus:ring-inset focus:ring-indigo-400 rounded-md shadow-sm transition"
                     placeholder="kevin@example.com" autocomplete="on" :value="old('email')" required autofocus>
                 </div>
               </div>
@@ -177,7 +178,7 @@
                   </svg>
                 </span>
                 <input type="password" name="password" id="password"
-                  class="block mt-1 w-full pl-11 placeholder-gray-400 border-gray-300 text-gray-800 hover:ring-0 hover:ring-inset hover:ring-indigo-200 focus:text-gray-800 focus:ring-0 focus:ring-inset focus:ring-indigo-400 rounded-md shadow-sm transition"
+                  class="block mt-1 w-full pl-11 placeholder-gray-400 border-gray-300 text-gray-800 hover:ring-0 hover:ring-inset hover:ring-indigo-200 focus:text-gray-800 focus:ring-1 focus:ring-inset focus:ring-indigo-400 rounded-md shadow-sm transition"
                   placeholder="Password" required autocomplete="current-password">
               </div>
             </div>
