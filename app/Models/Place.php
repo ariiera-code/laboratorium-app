@@ -20,4 +20,9 @@ class Place extends Model
   {
     return $this->belongsTo(User::class);
   }
+
+  public function labs()
+  {
+    return $this->hasMany(Lab::class);
+  }
 }

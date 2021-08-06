@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Place;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StorePlaceRequest;
@@ -40,7 +39,7 @@ class PLacesController extends Controller
   public function show(Place $place)
   {
     abort_if(Gate::denies('place_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
+    $places = Place::all();
     return view('places.show', compact('place'));
   }
 

@@ -1,6 +1,7 @@
 <x-app-layout>
   <div class="flex p-8">
     <div class="flex-1 max-h-full">
+      {{-- Add place --}}
       <div class="flex justify-between pb-6 pr-8">
         <h1 class="font-bold text-3xl">Places</h1>
         @can('user_access')
@@ -8,6 +9,7 @@
             class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition">Add Place</a>
         @endcan
       </div>
+      {{-- List places --}}
       <div class="grid grid-cols-2 gap-8 pr-8 sm:grid-cols-1 lg:pr-0">
         @foreach ($places as $place)
           <figure
@@ -109,6 +111,7 @@
       </div>
     </div>
 
+    {{-- Sticky sidebar --}}
     <aside class="flex-none p-6 max-w-sm w-full bg-white border border-grey-400 lg:hidden">
       <h1 class="font-bold">Search</h1>
       <div class="relative flex w-full flex-wrap items-stretch mt-4 mb-6">
@@ -128,21 +131,25 @@
         <div class=""></div>
         <div class=""></div>
       </div>
+      {{-- list search --}}
       <div class="grid gap-5 mb-8">
         @foreach ($places as $place)
           <div
             class="flex items-center bg-indigo-50 bg-opacity-0 border rounded-lg shadow-sm hover:bg-opacity-75 transition">
+            {{-- image --}}
             <div class="mr-4">
               <a href="{{ route('places.show', $place->id) }}" class="relative text-gray-700">
                 <img class="z-0 w-20 h-20 object-cover overflow-hidden" src="{{ 'images/authbg.jpg' }}" alt="" />
               </a>
             </div>
             <div class="py-3">
+              {{-- place name --}}
               <a href="{{ route('places.show', $place->id) }}">
                 <h1 class="mb-2 text-md font-bold text-gray-900 hover:text-indigo-400">
                   {{ $place->place_name }}
                 </h1>
               </a>
+              {{-- date updated --}}
               <div class="inline-block text-gray-700">
                 <div class="flex flex-row">
                   <div class="pt-1 text-indigo-400">
@@ -157,6 +164,7 @@
                   </div>
                 </div>
               </div>
+              {{-- place creator --}}
               <a href="" class="inline-block text-gray-700 ml-3 hover:text-indigo-400 transition">
                 <div class="flex flex-row">
                   <div class="pt-1 text-indigo-400">
@@ -179,65 +187,4 @@
     </aside>
   </div>
   {{-- <div class=""></div> --}}
-  <div class="hidden">
-    <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
-      <div class="block mb-8">
-        <a href="{{ route('places.create') }}"
-          class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Add Lab</a>
-      </div>
-      <div class="flex flex-col">
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-              <table class="min-w-full divide-y divide-gray-200 w-full">
-                <thead>
-                  <tr>
-                    <th scope="col" width="50"
-                      class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      ID
-                    </th>
-                    <th scope="col"
-                      class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Description
-                    </th>
-                    <th scope="col" width="200" class="px-6 py-3 bg-gray-50">
-
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                  @foreach ($places as $place)
-                    <tr>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        {{ $place->id }}
-                      </td>
-
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        {{ $place->description }}
-                      </td>
-
-                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <a href="{{ route('places.show', $place->id) }}"
-                          class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
-                        <a href="{{ route('places.edit', $place->id) }}"
-                          class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
-                        <form class="inline-block" action="{{ route('places.destroy', $place->id) }}" method="POST"
-                          onsubmit="return confirm('Are you sure?');">
-                          <input type="hidden" name="_method" value="DELETE">
-                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                          <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2 bg-transparent"
-                            value="Delete">
-                        </form>
-                      </td>
-                    </tr>
-                  @endforeach
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </x-app-layout>

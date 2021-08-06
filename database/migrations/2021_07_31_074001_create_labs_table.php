@@ -15,7 +15,12 @@ class CreateLabsTable extends Migration
     {
         Schema::create('labs', function (Blueprint $table) {
             $table->id();
-            $table->string('description');
+            $table->string('item_name');
+            $table->string('item_desc');
+            $table->integer('item_quantity');
+            $table->integer('item_error');
+            $table->integer('item_value');
+            $table->integer('item_total');
             $table->timestamps();
             $table->softDeletes();
         });

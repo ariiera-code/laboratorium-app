@@ -36,3 +36,14 @@ ul::-webkit-scrollbar-thumb {
     .f-outline textarea:not(:placeholder-shown) ~ label {
         transform: translateY(-1.5rem) translatex(-1rem) scaleX(0.80) scaleY(0.80);
     }
+
+.place-feed.border.border-gray-400.rounded.bg-white{
+  height: max-content;
+}
+.col-span-2.border.shadow-md.rounded.bg-white{
+  height: max-content;
+}
+
+.dropdown:hover > .dropdown-content {
+	display: block;
+}
