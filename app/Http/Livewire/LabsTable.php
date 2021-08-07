@@ -3,24 +3,35 @@
 namespace App\Http\Livewire;
 
 use App\Models\Lab;
-use Livewire\Component;
-use Livewire\WithPagination;
+use Mediconesystems\LivewireDatatables\Column;
+use Mediconesystems\LivewireDatatables\NumberColumn;
+use Mediconesystems\LivewireDatatables\DateColumn;
+use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 
-class LabsTable extends Component
+class LabsTable extends LivewireDatatable
 {
-  use WithPagination;
+  public $model = Lab::class;
 
-  public $perPage = 10;
-  public $search = '';
-  public $orderBy = 'id';
-  public $orderAsc = true;
-
-  public function render()
+  function columns()
   {
-    return view('livewire.labs-table', [
-      'labs' => Lab::search($this->search)
-        ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
-        ->simplePaginate($this->perPage),
-    ]);
+    return [
+      NumberColumn::name('id')
+        ->label('ID')
+        ->sortBy('id'),
+      Column::name('item_name')
+        ->label('Item Name')
+        ->searchable(),
+      Column::name('item_desc')
+        ->label('Description')
+        ->searchable(),
+      NumberColumn::name('item_quantity')
+        ->label('Quantity'),
+      DateColumn::name('created_at')
+        ->label('Creation Date')
+        ->searchable(),
+      Column::callback(['id', 'item_name'], function ($id, $item_name) {
+        return view('livewire.table-actions', ['id' => $id, 'item_name' => $item_name]);
+      })
+    ];
   }
 }

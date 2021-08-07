@@ -9,7 +9,7 @@
           <div class="left flex flex-row items-center">
             {{-- creator photo --}}
             <div class="h-10 w-10 border rounded-full overflow-hidden mr-4">
-              <img alt="profile picture" class="_6q-tv" data-testid="user-avatar" draggable="false"
+              <img alt="profile picture" class="h-10 w-10" data-testid="user-avatar" draggable="false"
                 src="{{ $place->user->profile_photo_url }}">
             </div>
             {{-- creator name --}}
@@ -115,8 +115,10 @@
   </div>
   <div class="px-8 pb-8 md:pt-0 md:px-0">
     <div class="flex-1 bg-white grid px-8 pt-8">
+      
       {{-- <livewire:labs-table> --}}
-      <livewire:lab-table hideable="select" searchable="item_name, item_desc" exportable />
+      <livewire:labs-table hideable="select" sort="item_name|asc" exportable />
+      <span class="bg-yellow-100"></span>
     </div>
   </div>
   {{-- <div class=""></div> --}}
