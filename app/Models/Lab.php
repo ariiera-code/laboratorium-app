@@ -32,4 +32,12 @@ class Lab extends Model
   {
     $this->belongsToMany(Unit::class);
   }
+
+  public static function search($search)
+  {
+    return empty($search) ? static::query()
+      : static::query()->where('id', 'like', '%' . $search . '%')
+      ->orWhere('item_name', 'like', '%' . $search . '%')
+      ->orWhere('item_desc', 'like', '%' . $search . '%');
+  }
 }

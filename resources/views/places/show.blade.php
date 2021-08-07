@@ -1,5 +1,6 @@
 <x-app-layout>
   <div class="flex p-8 sm:py-8 sm:px-0">
+    {{-- Place section --}}
     <div class="flex-1 grid grid-cols-3 gap-6">
       {{-- place desc --}}
       <div class="place-feed border shadow-md rounded bg-white lg:col-span-3">
@@ -109,10 +110,13 @@
             </li>
           </ul>
         </div>
-        @foreach ($place->labs as $lab)
-          {{ $lab->item_name }}
-        @endforeach
       </div>
+    </div>
+  </div>
+  <div class="px-8 pb-8 md:pt-0 md:px-0">
+    <div class="flex-1 bg-white grid px-8 pt-8">
+      {{-- <livewire:labs-table> --}}
+      <livewire:lab-table hideable="select" searchable="item_name, item_desc" exportable />
     </div>
   </div>
   {{-- <div class=""></div> --}}
