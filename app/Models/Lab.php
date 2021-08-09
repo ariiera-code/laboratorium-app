@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Log;
+use App\Models\Unit;
+use App\Models\Place;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Lab extends Model
 {
@@ -12,25 +15,22 @@ class Lab extends Model
 
   protected $fillable = [
     'item_name',
-    'item_desc',
-    'item_quantity',
-    'item_error',
-    'item_value',
-    'item_total',
-    'unit_id',
-    'place_id',
-    'comment_id',
-    'log_id',
+    'item_desc'
   ];
 
   public function place()
   {
-    $this->belongsTo(Place::class);
+    return $this->belongsTo(Place::class);
   }
 
-  public function units()
+  public function unit()
   {
-    $this->belongsToMany(Unit::class);
+    return $this->belongsTo(Unit::class);
+  }
+
+  public function log()
+  {
+    return $this->hasMany(Log::class);
   }
 
   public static function search($search)

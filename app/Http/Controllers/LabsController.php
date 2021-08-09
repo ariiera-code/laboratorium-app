@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lab;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StoreLabRequest;
 use App\Http\Requests\UpdateLabRequest;
-use App\Models\Lab;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
-
 
 class LabsController extends Controller
 {
@@ -23,13 +22,14 @@ class LabsController extends Controller
 
   public function create()
   {
-    abort_if(Gate::denies('lab_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
     return view('labs.create');
   }
 
   public function store(StoreLabRequest $request)
   {
+    abort_if(Gate::denies('lab_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
     Lab::create($request->validated());
 
     return redirect()->route('labs.index');
@@ -38,13 +38,12 @@ class LabsController extends Controller
   public function show(Lab $lab)
   {
     abort_if(Gate::denies('lab_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
     return view('labs.show', compact('lab'));
   }
 
   public function edit(Lab $lab)
   {
-    abort_if(Gate::denies('lab_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
     return view('labs.edit', compact('lab'));
   }
@@ -58,7 +57,7 @@ class LabsController extends Controller
 
   public function destroy(Lab $lab)
   {
-    abort_if(Gate::denies('lab_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
     $lab->delete();
 

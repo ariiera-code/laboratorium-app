@@ -15,9 +15,12 @@ class StoreLabRequest extends FormRequest
   public function rules()
   {
     return [
-      'description' => [
+      'item_name' => [
+        'required', 'string'
+      ],
+      'item_desc' => [
         'required', 'string',
-      ]
+      ],
     ];
   }
 

@@ -1,4 +1,5 @@
 <x-app-layout>
+  {{-- Detail & timeline section --}}
   <div class="flex p-8 sm:py-8 sm:px-0">
     {{-- Place section --}}
     <div class="flex-1 grid grid-cols-3 gap-6">
@@ -113,12 +114,17 @@
       </div>
     </div>
   </div>
+  {{-- Table section --}}
   <div class="px-8 pb-8 md:pt-0 md:px-0">
-    <div class="flex-1 bg-white grid px-8 pt-8">
-      
+    <div class="flex-1 divide-y divide-gray-300 bg-white grid px-8 pt-6 pb-4">
+      <div class="flex justify-between pb-2">
+        <h1 class="font-bold text-2xl">List of Items</h1>
+        <a href="{{ route('labs.create') }}"
+          class="px-7 py-1.5 border rounded-md bg-indigo-500 text-white text-base font-bold hover:bg-indigo-600">Add
+          Item</a>
+      </div>
       {{-- <livewire:labs-table> --}}
-      <livewire:labs-table hideable="select" sort="item_name|asc" exportable />
-      <span class="bg-yellow-100"></span>
+      <livewire:labs-table hideable="select" sort="item_name|asc" exportable :place="$place" />
     </div>
   </div>
   {{-- <div class=""></div> --}}
