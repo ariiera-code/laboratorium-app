@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Item;
+use App\Models\Lab;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\NumberColumn;
 use Mediconesystems\LivewireDatatables\DateColumn;
@@ -10,7 +10,7 @@ use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 
 class LabsTable extends LivewireDatatable
 {
-  public $model = Item::class;
+  public $model = Lab::class;
   public $place;
 
   public $confirmingItemDeletion = false;
@@ -23,7 +23,7 @@ class LabsTable extends LivewireDatatable
 
   public function builder()
   {
-    return Item::query()->where('place_id', '=', $this->place->id);
+    return Lab::query()->where('place_id', '=', $this->place->id);
   }
   function columns()
   {

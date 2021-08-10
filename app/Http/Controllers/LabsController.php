@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lab;
+use App\Models\Place;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StoreLabRequest;
@@ -23,8 +24,8 @@ class LabsController extends Controller
   public function create()
   {
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-    return view('labs.create');
+    $places = Place::pluck('place_name', 'id');
+    return view('labs.create', compact('places'));
   }
 
   public function store(StoreLabRequest $request)

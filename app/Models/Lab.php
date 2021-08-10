@@ -15,7 +15,12 @@ class Lab extends Model
 
   protected $fillable = [
     'item_name',
-    'item_desc'
+    'item_desc',
+    'item_quantity',
+    'item_error',
+    'item_value',
+    'unit_id',
+    'place_id',
   ];
 
   public function place()
