@@ -119,7 +119,7 @@
     <div class="flex-1 divide-y divide-gray-300 bg-white grid px-8 pt-6 pb-4">
       <div class="flex justify-between pb-2">
         <h1 class="font-bold text-2xl">List of Items</h1>
-        <a href="{{ route('labs.create', $place->id) }}"
+        <a href="{{ route('labs.create') }}"
           class="px-7 py-1.5 border rounded-md bg-indigo-500 text-white text-base font-bold hover:bg-indigo-600">Add
           Item</a>
       </div>

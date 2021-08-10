@@ -2,7 +2,7 @@
   <div class="flex p-8">
     <div class="flex-1 max-h-full">
       {{-- Add place --}}
-      <div class="flex justify-between pb-6 pr-8">
+      <div class="flex justify-between pb-6 pr-8 lg:pr-0">
         <h1 class="font-bold text-3xl">Places</h1>
         @can('user_access')
           <a href="{{ route('places.create') }}"

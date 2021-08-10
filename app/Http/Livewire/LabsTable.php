@@ -30,7 +30,8 @@ class LabsTable extends LivewireDatatable
     return [
       NumberColumn::name('id')
         ->label('ID')
-        ->sortBy('id'),
+        ->sortBy('id')
+        ->hide(),
       Column::name('item_name')
         ->label('Item Name')
         ->searchable(),

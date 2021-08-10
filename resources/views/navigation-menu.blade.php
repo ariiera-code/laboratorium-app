@@ -143,7 +143,7 @@
       </x-jet-responsive-nav-link>
     </div>
     @can('place_access')
-      <div class="py-2 space-y-1">
+      <div class="pb-2 space-y-1">
         <x-jet-responsive-nav-link href="{{ route('places.index') }}" :active="request()->routeIs('places.*')">
           {{ __('Laboratorium') }}
         </x-jet-responsive-nav-link>

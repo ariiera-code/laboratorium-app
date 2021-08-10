@@ -8,8 +8,8 @@
             @csrf
             {{-- input --}}
             <div class="overflow-hidden sm:rounded-md">
-              <h1 class="text-center px-6 sm:pt-8 text-2xl font-extrabold text-gray-900 xs:text-lg">Add New Item</h1>
-              <p class="mb-8 px-6 text-base text-center text-gray-500 text-opacity-75 xs:text-lg">What items can we add today?</p>
+              <h1 class="text-center px-6 sm:pt-8 text-2xl font-extrabold text-gray-900 xs:text-xl">Add New Item</h1>
+              <p class="mb-8 px-6 text-base text-center text-gray-500 text-opacity-75 xs:text-sm">What items can we add today?</p>
               {{-- general information --}}
               <div class="border-t-4 border-indigo-400 bg-white sm:border-0">
                 <div class="pt-4 grid grid-cols-1 divide-y divide-gray-300">
@@ -63,7 +63,7 @@
                 </div>
                 <div class="p-6">
                   <div class="mb-5 f-outline relative border focus-within:border-indigo-400">
-                    <input type="text" name="item_quantity" id="item_quantity" placeholder=" "
+                    <input type="number" name="item_quantity" id="item_quantity" placeholder=" "
                       class="block p-2 w-full text-lg appearance-none focus:outline-none bg-transparent resize-none">
                     <label for="item_quantity"
                       class="absolute ml-3 px-2 top-0 text-lg text-gray-700 bg-white mt-2 -z-1 duration-300 origin-0">Item
@@ -73,7 +73,7 @@
                     @enderror
                   </div>
                   <div class="mb-5 f-outline relative border focus-within:border-indigo-400">
-                    <input type="text" name="item_value" id="item_value" placeholder=" "
+                    <input type="number" name="item_value" id="item_value" placeholder=" "
                       class="block p-2 w-full text-lg appearance-none focus:outline-none bg-transparent resize-none">
                     <label for="item_value"
                       class="absolute ml-3 px-2 top-0 text-lg text-gray-700 bg-white mt-2 -z-1 duration-300 origin-0">Item
