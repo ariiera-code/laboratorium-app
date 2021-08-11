@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Place;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
-use App\Http\Requests\StorePlaceRequest;
 use App\Http\Requests\UpdatePlaceRequest;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -27,10 +27,28 @@ class PLacesController extends Controller
     return view('places.create', compact('backurl'));
   }
 
-  public function store(StorePlaceRequest $request)
+  public function store(Request $request)
   {
-    abort_if(Gate::denies('place_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-    Place::create($request->validated());
+    abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    $file = $request->file('place_photo');
+    if (file_exists($file)) {
+      $filename = $file->getClientOriginalName();
+      $folder = uniqid() . '-' . now()->timestamp;
+      $file->storeAs('public/placeimages/' . $folder, $filename);
+      $photo_url = $folder . '/' . $filename;
+    } else {
+      $photo_url = '';
+    }
+
+    // $filename = time() . '.' . $request->place_photo->extension();
+    // $request->file('place_photo')->storeAs('public', $filename);
+    // dd($photo_url);
+    Place::create([
+      'place_name' => $request->place_name,
+      'place_desc' => $request->place_desc,
+      'user_id' => $request->user_id,
+      'place_photo' => $photo_url
+    ]);
 
     return redirect()->route('places.index');
   }
@@ -48,9 +66,32 @@ class PLacesController extends Controller
     return view('places.edit', compact('place', 'backurl'));
   }
 
-  public function update(UpdatePlaceRequest $request, Place $place)
+  public function update(Request $request, $id)
   {
-    $place->update($request->validated());
+
+    $places = Place::whereId($id)->first();
+
+    $file = $request->file('place_photo');
+    if (file_exists($file)) {
+      if (\File::exists('storage/placeimages/' . $places->place_photo)) {
+        \File::delete('storage/placeimages/' . $places->place_photo);
+      }
+      $file = $request->file('place_photo');
+      $filename = $file->getClientOriginalName();
+      $folder = uniqid() . '-' . now()->timestamp;
+      $file->storeAs('public/placeimages/' . $folder, $filename);
+      $photo_url = $folder . '/' . $filename;
+      $places->update([
+        'place_name' => $request->place_name,
+        'place_desc' => $request->place_desc,
+        'place_photo' => $photo_url
+      ]);
+    } else {
+      $places->update([
+        'place_name' => $request->place_name,
+        'place_desc' => $request->place_desc
+      ]);
+    }
 
     return redirect()->route('places.index');
   }

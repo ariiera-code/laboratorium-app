@@ -4,7 +4,7 @@
       <div class="max-w-2xl mx-auto sm:p-0 lg:px-8">
         <div class="mt-5 md:mt-0 md:col-span-2">
           {{-- form start --}}
-          <form method="post" action="{{ route('places.store') }}">
+          <form method="post" action="{{ route('places.store') }}" enctype="multipart/form-data">
             @csrf
             {{-- hidden input id --}}
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
@@ -19,8 +19,9 @@
                   </div>
                   <div></div>
                 </div>
-                {{-- place name input --}}
+                {{-- place general input --}}
                 <div class="p-6">
+                  {{-- place name input --}}
                   <div class="mb-6 f-outline relative border focus-within:border-indigo-400">
                     <input type="text" name="place_name" id="place_name" placeholder=" "
                       class="block p-2 w-full text-lg appearance-none focus:outline-none bg-transparent"
@@ -33,7 +34,7 @@
                     @enderror
                   </div>
                   {{-- place desc input --}}
-                  <div class="f-outline relative border focus-within:border-indigo-400">
+                  <div class="mb-6 f-outline relative border focus-within:border-indigo-400">
                     <textarea type="text" name="place_desc" id="place_desc" placeholder=" "
                       class="block p-2 w-full text-lg appearance-none focus:outline-none bg-transparent resize-none"
                       rows="4" maxlength="255"></textarea>
@@ -43,6 +44,9 @@
                     @error('place_desc')
                       <p class="text-sm text-red-600">{{ $message }}</p>
                     @enderror
+                  </div>
+                  <div>
+                    <input type="file" name="place_photo" accept="image/*">
                   </div>
                   <div class="flex">
                     <a href="{{ $backurl }}"
@@ -62,8 +66,7 @@
                 </div>
               </div>
               {{-- submit button --}}
-              <div
-                class="flex items-center justify-end md:justify-center pb-4 pt-6 text-right sm:items-stretch sm:hidden">
+              <div class="flex items-center justify-end md:justify-center py-6 text-right sm:items-stretch sm:hidden">
                 <a href="{{ $backurl }}"
                   class="cursor-pointer mr-4 bg-white border border-indigo-500 text-indigo-500 font-bold rounded hover:text-white hover:border-indigo-700 hover:bg-indigo-700 py-2 px-5 inline-flex items-center transition md:w-full md:justify-center md:py-3">
                   <span class="mr-2">Cancel</span>
@@ -82,6 +85,7 @@
         </div>
       </div>
     </div>
+
   @elsecan('lab_access')
     Sorry you're not admin
   @endcan

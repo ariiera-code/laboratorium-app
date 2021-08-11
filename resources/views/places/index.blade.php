@@ -18,7 +18,7 @@
               <a href="{{ route('places.show', $place->id) }}" class="text-gray-700">
                 <img
                   class="z-0 h-48 w-full max-h-48 object-cover overflow-hidden hover:scale-105 transition duration-200"
-                  src="{{ 'images/authbg.jpg' }}" alt="" />
+                  src="{{ asset('storage/placeimages/' . $place->place_photo) }}" />
               </a>
             </div>
             {{-- title & condition --}}
@@ -139,7 +139,8 @@
             {{-- image --}}
             <div class="mr-4">
               <a href="{{ route('places.show', $place->id) }}" class="relative text-gray-700">
-                <img class="z-0 w-20 h-20 object-cover overflow-hidden" src="{{ 'images/authbg.jpg' }}" alt="" />
+                <img class="z-0 w-20 h-20 object-cover overflow-hidden"
+                  src="{{ asset('storage/placeimages/' . $place->place_photo) }}" />
               </a>
             </div>
             <div class="py-3">

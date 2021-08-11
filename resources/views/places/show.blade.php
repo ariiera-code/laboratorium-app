@@ -52,7 +52,8 @@
         </div>
         {{-- place image --}}
         <div class="">
-          <img class="z-0 h-48 w-full object-cover overflow-hidden" src="{{ url('/images/authbg.jpg') }}">
+          <img class="z-0 h-48 w-full object-cover overflow-hidden"
+            src="{{ asset('storage/placeimages/' . $place->place_photo) }}">
         </div>
         <div class="p-4">
           <div class="top">

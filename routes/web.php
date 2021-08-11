@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LabsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PlacesController;
+use App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', UsersController::class);
     Route::resource('places', PlacesController::class);
 });
+
+Route::post('upload', [UploadController::class, 'store']);

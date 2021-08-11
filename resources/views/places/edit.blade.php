@@ -4,13 +4,13 @@
       <div class="max-w-2xl mx-auto sm:p-0 lg:px-8">
         <div class="mt-5 md:mt-0 md:col-span-2">
           {{-- form start --}}
-          <form method="post" action="{{ route('places.update', $place->id) }}">
+          <form method="post" action="{{ route('places.update', $place->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="overflow-hidden sm:rounded-md">
               <h1 class="text-center px-6 md:pt-8 text-2xl font-extrabold text-gray-900 xs:text-xl">Edit Place</h1>
               <p class="mb-8 px-6 text-base text-center text-gray-500 text-opacity-75 xs:text-sm">Any changes to this
-                place??</p>
+                place?</p>
               <div class="border-t-4 border-indigo-400 bg-white rounded-lg">
                 <div class="pt-4 grid grid-cols-1 divide-y divide-gray-300">
                   <div>
@@ -42,6 +42,10 @@
                     @error('place_desc')
                       <p class="text-sm text-red-600">{{ $message }}</p>
                     @enderror
+                  </div>
+                  <div>
+                    <img src="{{ asset('storage/placeimages/' . $place->place_photo) }}" width="200">
+                    <input type="file" name="place_photo" accept="image/*">
                   </div>
                   <div class="flex">
                     <a href="{{ $backurl }}"
