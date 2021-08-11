@@ -1,17 +1,18 @@
 <x-app-layout>
   @can('user_access')
     <div>
-      <div class="max-w-2xl mx-auto py-8 sm:p-0 lg:px-8">
+      <div class="max-w-2xl mx-auto pb-8 sm:p-0 lg:px-8">
         <div class="mt-5 md:mt-0 md:col-span-2">
           {{-- form start --}}
           <form method="post" action="{{ route('labs.store') }}">
             @csrf
             {{-- input --}}
             <div class="overflow-hidden sm:rounded-md">
-              <h1 class="text-center px-6 sm:pt-8 text-2xl font-extrabold text-gray-900 xs:text-xl">Add New Item</h1>
-              <p class="mb-8 px-6 text-base text-center text-gray-500 text-opacity-75 xs:text-sm">What items can we add today?</p>
+              <h1 class="text-center px-6 md:pt-8 text-2xl font-extrabold text-gray-900 xs:text-xl">Add New Item</h1>
+              <p class="mb-8 px-6 text-base text-center text-gray-500 text-opacity-75 xs:text-sm">What items can we add
+                today?</p>
               {{-- general information --}}
-              <div class="border-t-4 border-indigo-400 bg-white sm:border-0">
+              <div class="border-t-4 border-indigo-400 bg-white rounded-lg sm:border-0">
                 <div class="pt-4 grid grid-cols-1 divide-y divide-gray-300">
                   <div>
                     <h1 class="mb-4 px-6 text-2xl font-bold text-gray-900 xs:text-lg">General Information</h1>
@@ -54,7 +55,7 @@
               </div>
 
               {{-- numeral information & button --}}
-              <div class="border-t-4 border-indigo-400 bg-white mt-8 sm:mt-0 sm:border-0">
+              <div class="border-t-4 border-indigo-400 bg-white rounded-lg mt-8 sm:mt-0 sm:border-0">
                 <div class="pt-4 grid grid-cols-1 divide-y divide-gray-300">
                   <div>
                     <h1 class="mb-4 px-6 text-2xl font-bold text-gray-900 xs:text-lg">Numeral Information</h1>
@@ -82,23 +83,29 @@
                       <p class="text-sm text-red-600">{{ $message }}</p>
                     @enderror
                   </div>
-                  <button
-                    class="hidden sm:mt-4 bg-indigo-500 text-white font-bold rounded hover:bg-indigo-700 shadow-md py-2 px-5 sm:inline-flex items-center transition sm:w-full sm:justify-center sm:py-4">
-                    <span class="mr-2">Add New</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" stroke-width="2"
-                      width="12" height="12" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd">
-                      <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
-                    </svg>
-                  </button>
+                  <div class="flex">
+                    <a href="{{ $backurl }}"
+                      class="hidden sm:mt-4 sm:mr-2 bg-white border border-indigo-500 text-indigo-500 font-bold rounded hover:text-white hover:border-indigo-700 hover:bg-indigo-700 py-2 px-5 sm:inline-flex items-center transition sm:w-full sm:justify-center sm:py-3">
+                      <span class="mr-2 text-lg">Cancel</span>
+                    </a>
+                    <button type="submit"
+                      class="hidden sm:mt-4 sm:ml-2 bg-indigo-500 text-white font-bold rounded hover:bg-indigo-700 py-2 px-5 sm:inline-flex items-center transition sm:w-full sm:justify-center sm:py-3">
+                      <span class="mr-2 text-lg">Add Item</span>
+                    </button>
+                  </div>
                 </div>
                 {{-- submit button --}}
 
               </div>
               <div
-                class="flex items-center justify-end pb-4 pt-6 text-right sm:items-stretch sm:hidden">
-                <button
-                  class="bg-indigo-500 text-white font-bold rounded hover:bg-indigo-700 shadow-md py-2 px-5 inline-flex items-center transition sm:w-full sm:justify-center sm:py-4">
-                  <span class="mr-2">Add New</span>
+                class="flex items-center justify-end md:justify-center pb-4 pt-6 text-right sm:items-stretch sm:hidden">
+                <a href="{{ $backurl }}"
+                  class="cursor-pointer mr-4 bg-white border border-indigo-500 text-indigo-500 font-bold rounded hover:text-white hover:border-indigo-700 hover:bg-indigo-700 py-2 px-5 inline-flex items-center transition md:w-full md:justify-center md:py-3">
+                  <span class="mr-2">Cancel</span>
+                </a>
+                <button type="submit"
+                  class="bg-indigo-500 text-white font-bold rounded hover:bg-indigo-700 shadow-md py-2 px-5 inline-flex items-center transition md:w-full md:justify-center md:py-3">
+                  <span class="mr-2">Add Item</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" stroke-width="2"
                     width="12" height="12" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd">
                     <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />

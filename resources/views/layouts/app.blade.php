@@ -19,6 +19,7 @@
 
   <!-- Scripts -->
   <script src="{{ mix('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/script.js') }}" defer></script>
 </head>
 
 <body class="font-sans antialiased">

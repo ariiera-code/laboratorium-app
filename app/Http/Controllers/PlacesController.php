@@ -23,8 +23,8 @@ class PLacesController extends Controller
   public function create()
   {
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-    return view('places.create');
+    $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
+    return view('places.create', compact('backurl'));
   }
 
   public function store(StorePlaceRequest $request)
@@ -44,8 +44,8 @@ class PLacesController extends Controller
   public function edit(Place $place)
   {
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-    return view('places.edit', compact('place'));
+    $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
+    return view('places.edit', compact('place', 'backurl'));
   }
 
   public function update(UpdatePlaceRequest $request, Place $place)

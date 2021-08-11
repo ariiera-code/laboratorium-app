@@ -10,10 +10,10 @@
             {{-- input --}}
             <div class="overflow-hidden sm:rounded-md">
               <h1 class="text-center px-6 sm:pt-8 text-2xl font-extrabold text-gray-900 xs:text-xl">Edit Item</h1>
-              <p class="mb-8 px-6 text-base text-center text-gray-500 text-opacity-75 xs:text-sm">any changes to this
+              <p class="mb-8 px-6 text-base text-center text-gray-500 text-opacity-75 xs:text-sm">Any changes to this
                 item?</p>
               {{-- general information --}}
-              <div class="border-t-4 border-indigo-400 bg-white sm:border-0">
+              <div class="border-t-4 border-indigo-400 bg-white rounded-lg sm:border-0">
                 <div class="pt-4 grid grid-cols-1 divide-y divide-gray-300">
                   <div>
                     <h1 class="mb-4 px-6 text-2xl font-bold text-gray-900 xs:text-lg">General Information</h1>
@@ -27,7 +27,7 @@
                       class="block p-2 w-full text-lg appearance-none focus:outline-none bg-transparent"
                       value="{{ old('item_name', $lab->item_name) }}" />
                     <label for="item_name"
-                      class="absolute ml-3 px-2 top-0 text-lg text-gray-700 bg-white mt-2 -z-1 duration-300 origin-0">Item
+                      class="absolute ml-3 px-2 top-0 text-lg text-gray-700 hover:text-indigo-400 bg-white mt-2 -z-1 duration-300 origin-0">Item
                       Name</label>
                     @error('item_name')
                       <p class="text-sm text-red-600">{{ $message }}</p>
@@ -55,7 +55,7 @@
               </div>
 
               {{-- numeral information & button --}}
-              <div class="border-t-4 border-indigo-400 bg-white mt-8 sm:mt-0 sm:border-0">
+              <div class="border-t-4 border-indigo-400 bg-white mt-8 rounded-lg sm:mt-0 sm:border-0">
                 <div class="pt-4 grid grid-cols-1 divide-y divide-gray-300">
                   <div>
                     <h1 class="mb-4 px-6 text-2xl font-bold text-gray-900 xs:text-lg">Numeral Information</h1>
@@ -98,26 +98,27 @@
                       <p class="text-sm text-red-600">{{ $message }}</p>
                     @enderror
                   </div>
+                  {{-- submit button sm --}}
                   <div class="flex">
-                    <a href=""
-                      class="hidden sm:mt-4 sm:mr-2 bg-white border border-indigo-500 text-indigo-500 font-bold rounded hover:text-white hover:border-indigo-700 hover:bg-indigo-700 py-2 px-5 sm:inline-flex items-center transition sm:w-full sm:justify-center sm:py-3">
+                    <a href="{{ $backurl }}"
+                      class="hidden sm:mt-4 sm:mr-2 bg-white border border-indigo-500 text-indigo-500 font-bold rounded-md hover:text-white hover:border-indigo-700 hover:bg-indigo-700 py-2 px-5 sm:inline-flex items-center transition sm:w-full sm:justify-center sm:py-3">
                       <span class="mr-2 text-lg">Cancel</span>
                     </a>
-                    <button
-                      class="hidden sm:mt-4 sm:ml-2 bg-indigo-500 text-white font-bold rounded hover:bg-indigo-700 py-2 px-5 sm:inline-flex items-center transition sm:w-full sm:justify-center sm:py-3">
+                    <button type="submit"
+                      class="hidden sm:mt-4 sm:ml-2 bg-indigo-500 text-white font-bold rounded-md hover:bg-indigo-700 py-2 px-5 sm:inline-flex items-center transition sm:w-full sm:justify-center sm:py-3">
                       <span class="mr-2 text-lg">Edit</span>
                     </button>
                   </div>
                 </div>
-                {{-- submit button --}}
-
               </div>
-              <div class="flex items-center justify-end md:justify-center pb-4 pt-6 text-right sm:items-stretch sm:hidden">
-                <button
-                  class="mr-4 bg-white border border-indigo-500 text-indigo-500 font-bold rounded hover:text-white hover:border-indigo-700 hover:bg-indigo-700 py-2 px-5 inline-flex items-center transition md:w-full md:justify-center md:py-3">
+              {{-- submit button lg --}}
+              <div
+                class="flex items-center justify-end md:justify-center pb-4 pt-6 text-right sm:items-stretch sm:hidden">
+                <a href="{{ $backurl }}"
+                  class="cursor-pointer mr-4 bg-white border border-indigo-500 text-indigo-500 font-bold rounded hover:text-white hover:border-indigo-700 hover:bg-indigo-700 py-2 px-5 inline-flex items-center transition md:w-full md:justify-center md:py-3">
                   <span class="mr-2">Cancel</span>
-                </button>
-                <a href="."
+                </a>
+                <button type="submit"
                   class="bg-indigo-500 text-white font-bold rounded hover:bg-indigo-700 shadow-md py-2 px-5 inline-flex items-center transition md:w-full md:justify-center md:py-3">
                   <span class="mr-2">Edit</span>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" stroke-width="1"
@@ -125,7 +126,7 @@
                     <path
                       d="M 19.171875 2 C 18.448125 2 17.724375 2.275625 17.171875 2.828125 L 16 4 L 20 8 L 21.171875 6.828125 C 22.275875 5.724125 22.275875 3.933125 21.171875 2.828125 C 20.619375 2.275625 19.895625 2 19.171875 2 z M 14.5 5.5 L 3 17 L 3 21 L 7 21 L 18.5 9.5 L 14.5 5.5 z" />
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </form>

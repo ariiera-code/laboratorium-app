@@ -25,7 +25,8 @@ class LabsController extends Controller
   {
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
     $places = Place::pluck('place_name', 'id');
-    return view('labs.create', compact('places'));
+    $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
+    return view('labs.create', compact('places', 'backurl'));
   }
 
   public function store(StoreLabRequest $request)
@@ -45,8 +46,8 @@ class LabsController extends Controller
   public function edit(Lab $lab)
   {
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-    return view('labs.edit', compact('lab'));
+    $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
+    return view('labs.edit', compact('lab', 'backurl'));
   }
 
   public function update(UpdateLabRequest $request, Lab $lab)

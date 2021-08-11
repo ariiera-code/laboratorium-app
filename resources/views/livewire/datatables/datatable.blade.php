@@ -136,7 +136,7 @@
                     @include('datatables::checkbox', ['value' => $result->checkbox_attribute])
                   @else
                     <div
-                      class="px-6 py-2 whitespace-no-wrap text-sm leading-5 text-gray-700 font-bold table-cell @if ($column['align']==='right' ) text-right @elseif($column['align'] === 'center') text-center @else text-left @endif">
+                      class="px-6 py-2 whitespace-no-wrap text-sm  text-gray-700 font-bold table-cell @if ($column['align']==='right' ) text-right @elseif($column['align'] === 'center') text-center @else text-left @endif">
                       {!! $result->{$column['name']} !!}
                     </div>
                   @endif
@@ -157,7 +157,7 @@
               @if (count($this->results))
                 <div class="my-2 sm:my-0 flex items-center">
                   <select name="perPage"
-                    class="mt-1 form-select block md:w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                    class="mt-1 form-select block md:w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm"
                     wire:model="perPage">
                     @foreach (config('livewire-datatables.per_page_options', [10, 25, 50, 100]) as $per_page_option)
                       <option value="{{ $per_page_option }}">{{ $per_page_option }}</option>

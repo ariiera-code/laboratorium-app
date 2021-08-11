@@ -1,8 +1,8 @@
 <x-app-layout>
-  <div class="flex p-8">
+  <div class="flex p-8 sm:py-8 sm:px-0">
     <div class="flex-1 max-h-full">
       {{-- Add place --}}
-      <div class="flex justify-between pb-6 pr-8 lg:pr-0">
+      <div class="flex justify-between pb-6 pr-8 sm:px-6 lg:pr-0">
         <h1 class="font-bold text-3xl">Places</h1>
         @can('user_access')
           <a href="{{ route('places.create') }}"
@@ -13,7 +13,7 @@
       <div class="grid grid-cols-2 gap-8 pr-8 sm:grid-cols-1 lg:pr-0">
         @foreach ($places as $place)
           <figure
-            class="bg-white border max-w-md max-h-full overflow-hidden rounded-lg shadow-md transition sm:max-w-full">
+            class="bg-white border max-w-md max-h-full overflow-hidden rounded-lg sm:rounded-none shadow-md sm:shadow-sm transition sm:max-w-full">
             <div class="relative z-10">
               <a href="{{ route('places.show', $place->id) }}" class="text-gray-700">
                 <img

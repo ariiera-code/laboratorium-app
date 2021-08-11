@@ -1,6 +1,6 @@
 body {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(79, 70, 229, 1) rgba(20, 20, 20, 0.075);
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(79, 70, 229, 1) rgba(20, 20, 20, 0.075) !important;
 }
 
 body::-webkit-scrollbar {
@@ -46,4 +46,12 @@ ul::-webkit-scrollbar-thumb {
 
 .dropdown:hover > .dropdown-content {
 	display: block;
+}
+
+.modal {
+  transition: opacity 0.25s ease;
+}
+body.modal-active {
+  overflow-x: hidden;
+  overflow-y: visible !important;
 }
