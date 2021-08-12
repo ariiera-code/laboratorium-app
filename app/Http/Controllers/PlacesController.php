@@ -6,7 +6,6 @@ use App\Models\Place;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
-use App\Http\Requests\UpdatePlaceRequest;
 use Symfony\Component\HttpFoundation\Response;
 
 class PLacesController extends Controller

@@ -19,6 +19,50 @@
 
   <!-- Scripts -->
   <script src="{{ mix('js/app.js') }}" defer></script>
+  <script type="text/javascript" src="{{ URL::asset('js/script.js') }}"></script>
+  <script type="text/javascript" src="{{ URL::asset('js/jquery-3.6.0.min.js') }}"></script>
+
+  <style>
+    html,
+    body {
+      overflow: hidden;
+      height: 100%;
+      min-height: 100%;
+    }
+
+    #site {
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+    }
+
+    #section-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+    }
+
+    div.section {
+      width: 100%;
+      position: relative;
+      height: 100%;
+      min-height: 100%;
+    }
+
+    #section-1 {
+      background: #ccc;
+    }
+
+    #section-2 {
+      background: #666;
+    }
+
+    #section-3 {
+      background: #000;
+    }
+
+  </style>
 
 </head>
 
@@ -90,51 +134,12 @@
   </nav>
 
 
-  <div class="max-w-7xl mx-auto px-12 sm:px-6 lg:px-12">
-    <div class="flex justify-between bg-gray-800">
-      <div class="w-8/12 sm:w-full grid grid-cols-1 place-content-end sm:pt-12">
-        <p class="font-bold text-white">est. 1982</p>
-        <div class="pb-16 border-b border-gray-600 mt-16">
-          <h1 class="font-bold text-5xl xs:text-4xl leading-none text-white font-serif tracking-widest">Magnificent</h1>
-          <a href="{{ route('places.index') }}"
-            class="tracking-widest inline-block font-bold text-5xl xs:text-4xl leading-none text-gray-400 hover:text-indigo-400 transition font-serif">
-            Laboratory
-            <p class="mt-4">
-              <span
-                class="hidden sm:inline-block font-sans bg-indigo-400 hover:bg-indigo-500 p-2 rounded-md font-extrabold text-3xl text-white transition">Discover
-                Now!</span>
-            </p>
-          </a>
-        </div>
-      </div>
-      <div class="w-4/12 sm:hidden">
-        <div class="py-12 pl-12 side">
-          <div class="grid grid-cols-6">
-            <div class="col-start-1 col-end-7 mt-4">
-              <p class="font-bold text-white">Tembalang, SMG</p>
-            </div>
-            <div class="col-start-1 col-end-7 mt-8">
-              <p class="font-bold text-white lg:text-sm md:text-xs">//</p>
-            </div>
-            <div class="col-start-1 col-end-7">
-              <p class="font-base text-gray-400 lg:text-sm md:text-xs">The handiest way to organize and maintain
-                laboratory equipment that
-                aims to improve performance and to become a better and competent campus.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div id="site">
+    <div id="section-wrapper">
+      <div class="section" id="section-1"></div>
+      <div class="section" id="section-2"></div>
+      <div class="section" id="section-3"></div>
     </div>
-  </div>
-  <div class="max-w-7xl py-8 mr-auto pr-12 sm:px-6 lg:px-12">
-    <a href="{{ route('places.index') }}" class="img-hover rounded-md">
-      <img class="object-cover h-52 w-full rounded-md" src="{{ asset('images/authbg.jpg') }}">
-      <div class="img-child">
-        <span class="sm:hidden font-extrabold text-3xl text-white">Discover Now!</span>
-        <span class="hidden sm:inline-block font-extrabold text-3xl text-white">See what's
-          inside!</span>
-      </div>
-    </a>
   </div>
   @livewireScripts
 </body>

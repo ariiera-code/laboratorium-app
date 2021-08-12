@@ -9,7 +9,9 @@
             <x-jet-application-mark class="block h-9 w-auto" />
           </a>
         </div>
+      </div>
 
+      <div class="flex justify-center">
         <!-- Navigation Links -->
         <div class="flex md:space-x-8 sm:-my-px ml-10 md:hidden">
           <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
@@ -31,7 +33,6 @@
           </div>
         @endcan
       </div>
-
       <!-- Settings Dropdown -->
       <div class="flex md:hidden items-center ml-6">
         <x-jet-dropdown align="right" width="48">
