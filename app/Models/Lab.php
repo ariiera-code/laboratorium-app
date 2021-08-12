@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Lab extends Model
 {
   use HasFactory, SoftDeletes;
+  
 
   protected $fillable = [
     'item_name',
@@ -22,6 +23,9 @@ class Lab extends Model
     'unit_id',
     'place_id',
   ];
+  
+
+  
 
   public function place()
   {
@@ -45,4 +49,6 @@ class Lab extends Model
       ->orWhere('item_name', 'like', '%' . $search . '%')
       ->orWhere('item_desc', 'like', '%' . $search . '%');
   }
+  
+  
 }

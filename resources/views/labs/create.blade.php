@@ -46,6 +46,7 @@
                   </div>
                   <div class="mb-2">
                     <select class="w-full border bg-white rounded px-3 py-2 outline-none text-gray-700">
+                      <option class="py-1">Located</option>
                       <option class="py-1">Option 1</option>
                       <option class="py-1">Option 2</option>
                       <option class="py-1">Option 3</option>
@@ -64,7 +65,7 @@
                 </div>
                 <div class="p-6">
                   <div class="mb-5 f-outline relative border focus-within:border-indigo-400">
-                    <input type="number" name="item_quantity" id="item_quantity" placeholder=" "
+                    <input type="text" name="item_quantity" id="item_quantity" placeholder=" "
                       class="block p-2 w-full text-lg appearance-none focus:outline-none bg-transparent resize-none">
                     <label for="item_quantity"
                       class="absolute ml-3 px-2 top-0 text-lg text-gray-700 bg-white mt-2 -z-1 duration-300 origin-0">Item
@@ -74,7 +75,7 @@
                     @enderror
                   </div>
                   <div class="mb-5 f-outline relative border focus-within:border-indigo-400">
-                    <input type="number" name="item_value" id="item_value" placeholder=" "
+                    <input type="text" name="item_value" id="item_value" placeholder=" "
                       class="block p-2 w-full text-lg appearance-none focus:outline-none bg-transparent resize-none">
                     <label for="item_value"
                       class="absolute ml-3 px-2 top-0 text-lg text-gray-700 bg-white mt-2 -z-1 duration-300 origin-0">Item
@@ -82,6 +83,13 @@
                     @error('item_value')
                       <p class="text-sm text-red-600">{{ $message }}</p>
                     @enderror
+                  </div>
+                  <div class="mb-2">
+                    <select class="w-full border bg-white rounded px-3 py-2 outline-none text-gray-700">
+                      <option class="py-1">Unit</option>
+                      <option class="py-1">Unit</option>
+                      <option class="py-1">Unit</option>
+                    </select>
                   </div>
                   <div class="flex">
                     <a href="{{ $backurl }}"

@@ -10,6 +10,7 @@ use App\Http\Requests\StoreLabRequest;
 use App\Http\Requests\UpdateLabRequest;
 use Symfony\Component\HttpFoundation\Response;
 
+
 class LabsController extends Controller
 {
   public function index()
@@ -27,12 +28,21 @@ class LabsController extends Controller
     $places = Place::pluck('place_name', 'id');
     $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
     return view('labs.create', compact('places', 'backurl'));
+    $item_total = $request->item_quantity * $request->item_value;
   }
 
   public function store(StoreLabRequest $request)
   {
     abort_if(Gate::denies('lab_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-    Lab::create($request->validated());
+    /*Lab::create($request->validated());*/
+    Lab::create([
+      'item_name' => $request->item_name,
+      'item_desc' => $request->item_desc,
+      'item_quantity' => $request->item_quantity,
+      'item_value' => $request->item_value,
+      'item_total' => $request->item_quantity*$request->item_value,
+      
+    ]);
 
     return redirect()->route('labs.index');
   }
@@ -41,19 +51,30 @@ class LabsController extends Controller
   {
     abort_if(Gate::denies('lab_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
     return view('labs.show', compact('lab'));
+    
+
+    
   }
 
   public function edit(Lab $lab)
   {
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
     $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
+    
     return view('labs.edit', compact('lab', 'backurl'));
   }
 
   public function update(UpdateLabRequest $request, Lab $lab)
   {
     $lab->update($request->validated());
-
+    $lab->update([
+      'item_name' => $request->item_name,
+      'item_desc' => $request->item_desc,
+      'item_quantity' => $request->item_quantity,
+      'item_value' => $request->item_value,
+      'item_error' => $request->item_error,
+      'item_total' => ($request->item_quantity) * ($request->item_value),
+    ]);
     return redirect()->route('labs.index');
   }
 
@@ -66,3 +87,5 @@ class LabsController extends Controller
     return redirect()->route('labs.index');
   }
 }
+
+
