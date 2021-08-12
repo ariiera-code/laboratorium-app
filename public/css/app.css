@@ -1108,8 +1108,8 @@ select {
 .top-10 {
 	top: 2.5rem;
 }
-.bottom-12 {
-	bottom: 3rem;
+.bottom-20 {
+	bottom: 5rem;
 }
 .bottom-56 {
 	bottom: 14rem;
@@ -1150,14 +1150,14 @@ select {
 .top-72 {
 	top: 18rem;
 }
-.right-80 {
-	right: 20rem;
+.right-72 {
+	right: 18rem;
 }
 .right-36 {
 	right: 9rem;
 }
-.bottom-20 {
-	bottom: 5rem;
+.top-64 {
+	top: 16rem;
 }
 .bottom-0 {
 	bottom: 0px;

@@ -386,7 +386,7 @@ img.bio-middle{
   object-fit: cover;
   top: 2rem;
   left: 31.3rem;
-  background-image: url("../images/nirwana.png");
+  background-image: url("../images/bagas.png");
   background-size: cover;
 }
 
@@ -399,8 +399,8 @@ img.bio-middle{
   color: rgba(129, 140, 248, 1);
   --tw-rotate: -90deg;
   transform: var(--tw-transform);
-  top: 13rem;
-  right: 40.5rem;
+  top: 17rem;
+  right: 43rem;
   z-index: 30;
 }
 

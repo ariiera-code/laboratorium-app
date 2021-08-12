@@ -52,7 +52,7 @@
         <div class="flex justify-center">
           <!-- Navigation Links -->
           <div class="flex md:space-x-8 sm:-my-px ml-10  md:hidden">
-            <a class="py-10 -mt-10 inline-flex border-indigo-400 transition' : 'inline-flex items-center px-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
+            <a class="py-10 -mt-10 inline-flex transition' : 'inline-flex items-center px-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
               href="{{ route('home') }}" :active="request()->routeIs('home')">
               <div class="font-bold text-white">
                 About
@@ -78,7 +78,7 @@
             </div>
           @endcan
           <div class="flex md:space-x-8 sm:-my-px ml-10 md:hidden">
-            <a class="py-10 -mt-10 inline-flex transition' : 'inline-flex items-center px-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
+            <a class="py-10 -mt-10 inline-flex  border-indigo-400 transition' : 'inline-flex items-center px-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
               href="{{ route('biodata') }}" :active="request()->routeIs('biodata')">
               <div class="font-bold text-white">
                 Biodata
@@ -112,8 +112,10 @@
   <div id="fullpage">
     <div class="section">
       <div class="relative h-screen">
-        <div class="absolute font-sans font-bold text-9xl text-indigo-600 top-10 z-30" style="left:18.5rem;">Nibros</div>
-        <div class="absolute font-sans font-bold text-9xl text-indigo-600 bottom-20 z-30" style="right:4rem;">Sindi</div>
+        <div class="absolute font-sans font-bold text-9xl text-indigo-600 top-10 z-30" style="left:18.5rem;">Nibros
+        </div>
+        <div class="absolute font-sans font-bold text-9xl text-indigo-600 bottom-20 z-30" style="right:4rem;">Sindi
+        </div>
         <div class="absolute font-serif font-light text-8xl text-white bottom-56 left-12 z-30">Developer</div>
         <div class="absolute font-serif font-light text-8xl text-indigo-400 bottom-32 left-12 z-30">Division</div>
         <img class="absolute h-5/6 w-4/12 top-10 left-72 object-cover" src="{{ asset('images/nibros.png') }}">
@@ -129,12 +131,12 @@
         <div class="absolute font-bold bottom-28 left-72 text-white">Report <span
             class="font-normal text-gray-100">Divison</span></div>
 
-        <div class="bio-text-nirwana">Nirwana</div>
+        <div class="bio-text-nirwana">Bagas</div>
         <div class="bio-text-div">Report <span class="font-normal text-gray-100">Divison</span></div>
         <div class="bio-middle"></div>
 
-        <img class="absolute h-4/6 w-72 top-16 right-32 object-cover" src="{{ asset('images/saniya.png') }}" alt="">
-        <div class="absolute font-serif font-light text-7xl text-indigo-400 -rotate-90 top-72 right-80">Bagas</div>
+        <img class="absolute h-4/6 w-72 top-16 right-32 object-cover" src="{{ asset('images/nirwana.png') }}" alt="">
+        <div class="absolute font-serif font-light text-7xl text-indigo-400 -rotate-90 top-64 right-72">Nirwana</div>
         <div class="absolute font-bold bottom-32 right-36 text-white">Report <span
             class="font-normal text-gray-100">Divison</span></div>
       </div>
