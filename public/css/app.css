@@ -1147,17 +1147,14 @@ select {
 .right-32 {
 	right: 8rem;
 }
-.top-72 {
-	top: 18rem;
+.top-64 {
+	top: 16rem;
 }
 .right-72 {
 	right: 18rem;
 }
 .right-36 {
 	right: 9rem;
-}
-.top-64 {
-	top: 16rem;
 }
 .bottom-0 {
 	bottom: 0px;
@@ -2011,6 +2008,10 @@ select {
 }
 .bg-transparent {
 	background-color: transparent;
+}
+.bg-gray-400 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(156, 163, 175, var(--tw-bg-opacity));
 }
 .bg-indigo-100 {
 	--tw-bg-opacity: 1;
