@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('/biodata', function () {
     return view('biodata');
-});
+})->name('biodata');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
     return view('home');

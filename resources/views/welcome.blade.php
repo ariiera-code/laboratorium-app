@@ -65,6 +65,14 @@
               </a>
             </div>
           @endcan
+          <div class="flex md:space-x-8 sm:-my-px ml-10 md:hidden">
+            <a class="py-10 -mt-10 inline-flex transition' : 'inline-flex items-center px-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
+              href="{{ route('biodata') }}" :active="request()->routeIs('biodata')">
+              <div class="font-bold text-white">
+                Biodata
+              </div>
+            </a>
+          </div>
         </div>
         <!-- Login Register -->
         <div class="flex items-center ml-6">

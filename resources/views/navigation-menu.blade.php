@@ -32,6 +32,11 @@
             </x-jet-nav-link>
           </div>
         @endcan
+        <div class="flex md:space-x-8 sm:-my-px ml-10 md:hidden">
+          <x-jet-nav-link href="{{ route('biodata') }}" :active="request()->routeIs('biodata')">
+            {{ __('Biodata') }}
+          </x-jet-nav-link>
+        </div>
       </div>
       <!-- Settings Dropdown -->
       <div class="flex md:hidden items-center ml-6">
@@ -157,6 +162,11 @@
         </x-jet-responsive-nav-link>
       </div>
     @endcan
+    <div class="pb-3 space-y-1">
+      <x-jet-responsive-nav-link href="{{ route('biodata') }}" :active="request()->routeIs('home')">
+        {{ __('Biodata') }}
+      </x-jet-responsive-nav-link>
+    </div>
 
     <!-- Responsive Settings Options -->
     <div class="pt-4 pb-1 border-t border-gray-200">

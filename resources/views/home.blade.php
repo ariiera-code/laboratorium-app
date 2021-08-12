@@ -65,32 +65,42 @@
               </a>
             </div>
           @endcan
+          <div class="flex md:space-x-8 sm:-my-px ml-10 md:hidden">
+            <a class="py-10 -mt-10 inline-flex transition' : 'inline-flex items-center px-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"
+              href="{{ route('biodata') }}" :active="request()->routeIs('biodata')">
+              <div class="font-bold text-white">
+                Biodata
+              </div>
+            </a>
+          </div>
         </div>
         <!-- Settings Dropdown -->
         <div class="flex md:hidden items-center ml-6">
           <x-jet-dropdown align="right" width="48">
-            <x-slot name="trigger">
-              @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                <button
-                  class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                  <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
-                    alt="{{ Auth::user()->name }}" />
-                </button>
-              @else
-                <button
-                  class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                  <div>{{ Auth::user()->name }}</div>
+            @can('place_access')
+              <x-slot name="trigger">
+                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                  <button
+                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
+                    <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
+                      alt="{{ Auth::user()->name }}" />
+                  </button>
+                @else
+                  <button
+                    class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                    <div>{{ Auth::user()->name }}</div>
 
-                  <div class="ml-1">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clip-rule="evenodd" />
-                    </svg>
-                  </div>
-                </button>
-              @endif
-            </x-slot>
+                    <div class="ml-1">
+                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                  </button>
+                @endif
+              </x-slot>
+            @endcan
 
             <x-slot name="content">
               <!-- Account Management -->
@@ -190,6 +200,11 @@
           </x-jet-responsive-nav-link>
         </div>
       @endcan
+      <div class="pb-2 space-y-1">
+        <x-jet-responsive-nav-link href="{{ route('biodata') }}" :active="request()->routeIs('places.*')">
+          {{ __('Biodata') }}
+        </x-jet-responsive-nav-link>
+      </div>
 
       <!-- Responsive Settings Options -->
       <div class="pt-4 pb-1 border-t border-gray-200">
