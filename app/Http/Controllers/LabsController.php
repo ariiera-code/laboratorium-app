@@ -24,7 +24,7 @@ class LabsController extends Controller
   public function create()
   {
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-    $places = Place::pluck('place_name', 'id');
+    $places = Place::all();
     $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
     return view('labs.create', compact('places', 'backurl'));
   }
@@ -32,9 +32,16 @@ class LabsController extends Controller
   public function store(StoreLabRequest $request)
   {
     abort_if(Gate::denies('lab_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-    Lab::create($request->validated());
-
-    return redirect()->route('labs.index');
+    // Lab::create($request->validated());
+    Lab::create([
+      'item_name' => $request->item_name,
+      'item_desc' => $request->item_desc,
+      'item_quantity' => $request->item_quantity,
+      'item_value' => $request->item_value,
+      'item_total' => $request->item_quantity * $request->item_value
+    ]);
+    $places = Place::all();
+    return redirect()->route('places.index', compact('places'));
   }
 
   public function show(Lab $lab)
@@ -53,6 +60,14 @@ class LabsController extends Controller
   public function update(UpdateLabRequest $request, Lab $lab)
   {
     $lab->update($request->validated());
+    $lab->update([
+      'item_name' => $request->item_name,
+      'item_desc' => $request->item_desc,
+      'item_quantity' => $request->item_quantity,
+      'item_value' => $request->item_value,
+      'item_error' => $request->item_error,
+      'item_total' => ($request->item_quantity) * ($request->item_value),
+    ]);
 
     return redirect()->route('labs.index');
   }

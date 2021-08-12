@@ -45,10 +45,10 @@
                     @enderror
                   </div>
                   <div class="mb-2">
-                    <select class="w-full border bg-white rounded px-3 py-2 outline-none text-gray-700">
-                      <option class="py-1">Option 1</option>
-                      <option class="py-1">Option 2</option>
-                      <option class="py-1">Option 3</option>
+                    <select class="w-full border bg-white rounded px-3 py-2 outline-none text-gray-700" name="place_id">
+                      @foreach ($places as $place)
+                        <option class="py-1" value="{{ $place->id }}">{{ $place->place_name }}</option>
+                      @endforeach
                     </select>
                   </div>
                 </div>

@@ -24,10 +24,73 @@
                 <tr class="border-b">
                   <th scope="col"
                     class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Name
+                  </th>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                    {{ $lab->item_name }}
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <th scope="col"
+                    class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Description
                   </th>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                    {{ $lab->description }}
+                    {{ $lab->item_desc }}
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <th scope="col"
+                    class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Quantity
+                  </th>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                    {{ $lab->item_quantity }} unit
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <th scope="col"
+                    class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Error
+                  </th>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                    {{ $lab->item_error }} unit
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <th scope="col"
+                    class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Value
+                  </th>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                    Rp.{{ $lab->item_value }}/unit
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <th scope="col"
+                    class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Total Value
+                  </th>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                    Rp. {{ $lab->item_quantity * $lab->item_value }}
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <th scope="col"
+                    class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Created At
+                  </th>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                    {{ date('F j, Y', strtotime($lab->created_at)) }}
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <th scope="col"
+                    class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Update At
+                  </th>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                    {{ date('F j, Y', strtotime($lab->updated_at)) }}
                   </td>
                 </tr>
               </table>
