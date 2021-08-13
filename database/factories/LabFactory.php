@@ -28,6 +28,7 @@ class LabFactory extends Factory
             'item_error' => $this->faker->randomDigit(),
             'item_value' => $this->faker->randomDigit(),
             'item_total' => $this->faker->randomDigit(),
+            'place_id' => $this->faker->numberBetween(1,2),
             'created_at' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
             'updated_at' => $this->faker->date($format = 'Y-m-d', $max = 'now')
         ];

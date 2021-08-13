@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFileToPlaceTable extends Migration
+class AddPlacePhotoToPlaceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddFileToPlaceTable extends Migration
     public function up()
     {
         Schema::table('places', function (Blueprint $table) {
-            $table->string('place_image')->after('user_id')->default('');
+            $table->string('place_photo')->after('user_id')->default('');
         });
     }
 
@@ -25,6 +25,8 @@ class AddFileToPlaceTable extends Migration
      */
     public function down()
     {
-        Schema::table('places', function (Blueprint $table) { });
+        Schema::table('places', function (Blueprint $table) {
+            $table->dropColumn('place_image');
+        });
     }
 }

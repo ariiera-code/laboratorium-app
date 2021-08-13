@@ -7,6 +7,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>{{ config('app.name', 'Laravel') }}</title>
+  <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
 
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -119,7 +120,7 @@
         <div class="absolute font-serif font-light text-8xl text-white bottom-56 left-12 z-30">Developer</div>
         <div class="absolute font-serif font-light text-8xl text-indigo-400 bottom-32 left-12 z-30">Division</div>
         <img class="absolute h-5/6 w-4/12 top-10 left-72 object-cover" src="{{ asset('images/nibros.png') }}">
-        <img class="absolute h-4/6 w-4/12 top-20 right-28 object-cover" src="{{ asset('images/nibros.png') }}">
+        <img class="absolute h-4/6 w-4/12 top-20 right-28 object-cover" src="{{ asset('images/sindi.png') }}">
       </div>
     </div>
     <div class="section">

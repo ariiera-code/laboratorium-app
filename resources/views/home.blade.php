@@ -7,6 +7,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>{{ config('app.name', 'Laravel') }}</title>
+  <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
 
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -316,7 +317,7 @@
     </div>
   </div>
   <div class="max-w-7xl py-8 mr-auto pr-12 sm:px-6 lg:px-12">
-    <a href="." class="img-hover rounded-md">
+    <a href="{{ route('places.index') }}" class="img-hover rounded-md">
       <img class="object-cover h-52 w-full rounded-md" src="{{ asset('images/authbg.jpg') }}">
       <div class="img-child">
         <span class="sm:hidden font-extrabold text-3xl text-white">Discover Now!</span>
