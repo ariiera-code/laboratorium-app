@@ -63,7 +63,7 @@ class LabsTable extends LivewireDatatable
         ->hide(),
       Column::callback(['id', 'item_name'], function ($id, $item_name) {
         return view('livewire.table-actions', ['id' => $id, 'item_name' => $item_name]);
-      })->hide()
+      })
     ];
   }
 }

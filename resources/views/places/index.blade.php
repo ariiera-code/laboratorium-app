@@ -15,7 +15,7 @@
           <figure
             class="bg-white border max-w-md max-h-full overflow-hidden rounded-lg sm:rounded-none shadow-md sm:shadow-sm transition sm:max-w-full">
             <div class="relative z-10">
-              <a href="{{ route('places.show', $place->id) }}" class="text-gray-700">
+              <a href="{{ route('places.show', Str::slug($place->place_name)) }}" class="text-gray-700">
                 <img
                   class="z-0 h-48 w-full max-h-48 object-cover overflow-hidden hover:scale-105 transition duration-200"
                   src="{{ asset('storage/placeimages/' . $place->place_photo) }}" />
@@ -25,7 +25,7 @@
             <figcaption class="max-w-md w-full">
               <div class="px-5 pt-6 pb-4 rounded space-y-1 text-gray-900">
                 <div class="w-28">
-                  <a href="{{ route('places.show', $place->id) }}">
+                  <a href="{{ route('places.show', Str::slug($place->place_name)) }}">
                     <div
                       class="flex flex-row py-1 px-3 rounded-full bg-indigo-100 max-w-max text-indigo-400 hover:bg-indigo-500 hover:text-white transition">
                       <div class="pt-1">
@@ -43,7 +43,8 @@
                 </div>
               </div>
               <div class="bg-white px-5 pb-2 rounded space-y-1 text-gray-900">
-                <a href="{{ route('places.show', $place->id) }}" class="hover:text-indigo-400 transition">
+                <a href="{{ route('places.show', Str::slug($place->place_name)) }}"
+                  class="hover:text-indigo-400 transition">
                   <h1 class="font-bold capitalize text-lg">
                     {{ $place->place_name }}
                   </h1>
@@ -138,14 +139,14 @@
             class="flex items-center bg-indigo-50 bg-opacity-0 border rounded-lg shadow-sm hover:bg-opacity-75 transition">
             {{-- image --}}
             <div class="mr-4">
-              <a href="{{ route('places.show', $place->id) }}" class="relative text-gray-700">
+              <a href="{{ route('places.show', Str::slug($place->place_name)) }}" class="relative text-gray-700">
                 <img class="z-0 w-20 h-20 object-cover overflow-hidden"
                   src="{{ asset('storage/placeimages/' . $place->place_photo) }}" />
               </a>
             </div>
             <div class="py-3">
               {{-- place name --}}
-              <a href="{{ route('places.show', $place->id) }}">
+              <a href="{{ route('places.show', Str::slug($place->place_name)) }}">
                 <h1 class="mb-2 text-md font-bold text-gray-900 hover:text-indigo-400">
                   {{ $place->place_name }}
                 </h1>

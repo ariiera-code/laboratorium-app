@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lab;
 use App\Models\Place;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
@@ -46,23 +48,27 @@ class PLacesController extends Controller
       'place_name' => $request->place_name,
       'place_desc' => $request->place_desc,
       'user_id' => $request->user_id,
-      'place_photo' => $photo_url
+      'place_photo' => $photo_url,
+      'slug' => Str::slug($request->place_name, '-')
     ]);
 
     return redirect()->route('places.index');
   }
 
-  public function show(Place $place)
+  public function show($slug)
   {
     abort_if(Gate::denies('place_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-    return view('places.show', compact('place'));
+    $place = Place::where('slug', $slug)->first();
+    $lab = Lab::where('slug', $slug)->first();
+    return view('places.show', compact('place', 'lab', 'slug'));
   }
 
-  public function edit(Place $place)
+  public function edit($slug)
   {
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    $place = Place::where('slug', $slug)->first();
     $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
-    return view('places.edit', compact('place', 'backurl'));
+    return view('places.edit', compact('place', 'backurl', 'slug'));
   }
 
   public function update(Request $request, $id)

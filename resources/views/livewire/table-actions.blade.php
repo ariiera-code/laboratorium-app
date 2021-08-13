@@ -1,6 +1,6 @@
 @can('user_access')
   <div class="flex space-x-1 justify-around">
-    <a href="{{ route('labs.show', [$id]) }}"
+    <a href="{{ route('labs.show', Str::slug($item_name)) }}"
       class="p-1 text-indigo-600 hover:bg-indigo-600 hover:text-white transition rounded">
       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
@@ -10,7 +10,7 @@
       </svg>
     </a>
 
-    <a href="{{ route('labs.edit', [$id]) }}"
+    <a href="{{ route('labs.edit', Str::slug($item_name)) }}"
       class="p-1 text-blue-600 hover:bg-blue-600 hover:text-white transition rounded">
       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <path
