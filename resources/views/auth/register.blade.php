@@ -2,13 +2,9 @@
   <div class="lg:hidden">
     <x-jet-authentication-card>
 
-      <div class="flex-grow w-3/5 object-fill">
-        <img class="w-full" src="{{ 'images/authbg.jpg' }}">
-      </div>
+      <img class="flex-grow w-3/5 object-cover" src="{{ 'images/authbg.jpg' }}">
 
       <div class="flex items-center px-6 py-5 w-2/5">
-        <x-jet-validation-errors class="mb-4" />
-
         <form method="POST" action="{{ route('register') }}">
           @csrf
 
@@ -16,6 +12,7 @@
             <p class="text-2xl font-bold mb-3">Welcome to <span class="text-indigo-600"><a
                   href="/">Laboratory!</a></span>
             <p class="px-2 max-w-full text-base mx-auto">Create an account to start the adventure</p>
+            <x-jet-validation-errors class="mt-4" />
           </div>
           <div>
             <x-jet-label for="name" value="{{ __('Name') }}" />
@@ -74,7 +71,7 @@
 
   {{-- Responsive Content --}}
   <div class="hidden lg:block">
-    <section class="flex max-h-screen">
+    <section class="flex">
       <main class="w-96 bg-red-400 space-y-5 block md:hidden">
         <div>
           <img class="object-cover h-screen" src="{{ 'images/authbg.jpg' }}" alt="reader">
@@ -86,6 +83,7 @@
         <div class="mb-6 text-center">
           <p class="text-2xl font-bold mb-3">Welcome to <span class="text-indigo-600"><a href="/">Laboratory!</a></span>
           <p class="px-2 max-w-full text-base mx-auto sm:text-sm">Create an account to start the adventure</p>
+          <x-jet-validation-errors class="mt-4" />
         </div>
 
         <section class="flex flex-col">
@@ -93,14 +91,14 @@
             @csrf
             <div class="mt-1">
               <x-jet-label for="name" value="{{ __('Name') }}" />
-              <x-jet-input id="name" class="block mt-1 w-full placeholder-gray-400" type="text" name="name" placeholder="Kevin Johnson"
-                :value="old('name')" required autofocus autocomplete="name" />
+              <x-jet-input id="name" class="block mt-1 w-full placeholder-gray-400" type="text" name="name"
+                placeholder="Kevin Johnson" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
               <x-jet-label for="email" value="{{ __('Email') }}" />
-              <x-jet-input id="email" class="block mt-1 w-full placeholder-gray-400" type="email" name="email" placeholder="john@example.com"
-                :value="old('email')" required />
+              <x-jet-input id="email" class="block mt-1 w-full placeholder-gray-400" type="email" name="email"
+                placeholder="john@example.com" :value="old('email')" required />
             </div>
 
             <div class="mt-4">

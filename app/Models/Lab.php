@@ -21,6 +21,7 @@ class Lab extends Model
     'item_value',
     'unit_id',
     'place_id',
+    'slug',
   ];
 
   public function place()

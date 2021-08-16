@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Lab;
 use App\Models\Place;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
-use App\Http\Requests\StoreLabRequest;
 use App\Http\Requests\UpdateLabRequest;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -30,21 +30,24 @@ class LabsController extends Controller
     return view('labs.create', compact('places', 'backurl'));
   }
 
-  public function store(StoreLabRequest $request)
+  public function store(Request $request)
   {
-    abort_if(Gate::denies('lab_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
     // Lab::create($request->validated());
     $places = Place::all();
+    $item_quantity = $request->item_quantity;
+    $item_value = $request->item_value;
+    $item_total = $item_quantity * $item_value;
     Lab::create([
       'item_name' => $request->item_name,
       'item_desc' => $request->item_desc,
-      'item_quantity' => $request->item_quantity,
-      'item_value' => $request->item_value,
-      'item_total' => $request->item_quantity * $request->item_value,
+      'item_quantity' => $item_quantity,
+      'item_value' => $item_value,
+      'item_total' => $item_total,
       'place_id' => $request->place_id,
       'slug' => Str::slug($request->item_name, '-')
     ]);
-    return redirect()->route('places.index', compact('places'));
+    return redirect()->route('places.index', compact('places', 'item_quantity', 'item_value', 'item_total'));
   }
 
   public function show($slug)
