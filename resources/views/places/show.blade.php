@@ -1,4 +1,5 @@
 <x-app-layout>
+  <title>{{ $data['title'] }}</title>
   {{-- Detail & timeline section --}}
   <div class="flex p-8 sm:py-8 sm:px-0">
     {{-- Place section --}}

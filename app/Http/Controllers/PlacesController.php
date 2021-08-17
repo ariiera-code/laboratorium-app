@@ -15,17 +15,23 @@ class PLacesController extends Controller
   public function index()
   {
     abort_if(Gate::denies('place_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    $data = [
+      'title' => 'Place List'
+    ];
 
     $places = Place::all();
 
-    return view('places.index', compact('places'));
+    return view('places.index', compact('places', 'data'));
   }
 
   public function create()
   {
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
     $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
-    return view('places.create', compact('backurl'));
+    $data = [
+      'title' => 'New Place'
+    ];
+    return view('places.create', compact('backurl', 'data'));
   }
 
   public function store(Request $request)
@@ -60,7 +66,10 @@ class PLacesController extends Controller
     abort_if(Gate::denies('place_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
     $place = Place::where('slug', $slug)->first();
     $lab = Lab::where('slug', $slug)->first();
-    return view('places.show', compact('place', 'lab', 'slug'));
+    $data = [
+      'title' => $place['place_name'] . "'s Info"
+    ];
+    return view('places.show', compact('place', 'lab', 'slug', 'data'));
   }
 
   public function edit($slug)
@@ -68,7 +77,10 @@ class PLacesController extends Controller
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
     $place = Place::where('slug', $slug)->first();
     $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
-    return view('places.edit', compact('place', 'backurl', 'slug'));
+    $data = [
+      'title' => 'Edit Place'
+    ];
+    return view('places.edit', compact('place', 'backurl', 'slug', 'data'));
   }
 
   public function update(Request $request, $id)

@@ -1,10 +1,6 @@
 <x-app-layout>
-  <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      Laboratorium Data
-    </h2>
-  </x-slot>
 
+  <title>{{ $data['title'] }}</title>
   <div>
     <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
       <div class="flex flex-col">
@@ -99,8 +95,8 @@
         </div>
       </div>
       <div class="flex mt-6 justify-end">
-        <a href="{{ route('labs.index') }}"
-          class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back to list</a>
+        <a href="{{ $backurl }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back
+          to list</a>
       </div>
     </div>
   </div>

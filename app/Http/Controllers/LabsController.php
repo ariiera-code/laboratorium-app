@@ -18,8 +18,11 @@ class LabsController extends Controller
     abort_if(Gate::denies('lab_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
     $labs = Lab::all();
+    $data = [
+      'title' => 'Item List'
+    ];
 
-    return view('labs.index', compact('labs'));
+    return view('labs.index', compact('labs', 'data'));
   }
 
   public function create()
@@ -27,7 +30,11 @@ class LabsController extends Controller
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
     $places = Place::all();
     $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
-    return view('labs.create', compact('places', 'backurl'));
+    $data = [
+      'title' => 'New Item'
+    ];
+
+    return view('labs.create', compact('places', 'backurl', 'data'));
   }
 
   public function store(Request $request)
@@ -54,7 +61,12 @@ class LabsController extends Controller
   {
     abort_if(Gate::denies('lab_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
     $lab = Lab::where('slug', $slug)->first();
-    return view('labs.show', compact('lab', 'slug'));
+    $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
+    $data = [
+      'title' => $lab['item_name'] . "'s Info"
+    ];
+
+    return view('labs.show', compact('lab', 'slug', 'backurl', 'data'));
   }
 
   public function edit($slug)
@@ -63,7 +75,11 @@ class LabsController extends Controller
     $lab = Lab::where('slug', $slug)->first();
     $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
     $places = Place::all();
-    return view('labs.edit', compact('lab', 'backurl', 'places', 'slug'));
+    $data = [
+      'title' => 'Edit Item'
+    ];
+
+    return view('labs.edit', compact('lab', 'backurl', 'places', 'slug', 'data'));
   }
 
   public function update(UpdateLabRequest $request, Lab $lab)
@@ -78,7 +94,7 @@ class LabsController extends Controller
       'item_total' => ($request->item_quantity) * ($request->item_value),
     ]);
 
-    return redirect()->route('labs.index');
+    return redirect()->route('places.index');
   }
 
   public function destroy(Lab $lab)
@@ -86,7 +102,8 @@ class LabsController extends Controller
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
     $lab->delete();
+    $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
 
-    return redirect()->route('labs.index');
+    return redirect()->route('places.index');
   }
 }

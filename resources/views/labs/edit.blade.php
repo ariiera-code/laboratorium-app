@@ -1,4 +1,5 @@
 <x-app-layout>
+  <title>{{ $data['title'] }}</title>
   @can('user_access')
     <div>
       <div class="max-w-2xl mx-auto py-8 sm:p-0 lg:px-8">
