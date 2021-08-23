@@ -22,7 +22,7 @@ class UsersController extends Controller
     ];
 
     $users = User::with('roles')->get();
-    
+
     return view('users.index', compact('users', 'data'));
   }
 
@@ -30,12 +30,13 @@ class UsersController extends Controller
   {
     abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+    $backurl = htmlspecialchars($_SERVER['HTTP_REFERER']);
     $roles = Role::pluck('title', 'id');
     $data = [
       'title' => 'Create User'
     ];
 
-    return view('users.create', compact('roles', 'data'));
+    return view('users.create', compact('roles', 'data', 'backurl'));
   }
 
   public function store(Request $request)

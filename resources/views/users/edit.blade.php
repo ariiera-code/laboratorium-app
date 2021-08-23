@@ -1,7 +1,7 @@
 <x-app-layout>
   <title>{{ $data['title'] }}</title>
   <div>
-    <div class="max-w-2xl mx-auto py-8 sm:p-0 lg:px-8">
+    <div class="max-w-2xl mx-auto pb-8 sm:p-0 lg:px-8">
       <div class="mt-5 md:mt-0 md:col-span-2">
         {{-- form start --}}
         <form method="post" action="{{ route('users.update', $user->id) }}">
