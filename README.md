@@ -68,7 +68,7 @@ Laboratorium App is an application that functions to manage web-based assets at 
 
 MIT License
 
-Copyright (c) [2017] [James Q Quick]
+Copyright (c) [2021] [Nibros Ari Wibowo]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
