@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
-class PLacesController extends Controller
+class PlacesController extends Controller
 {
   public function index()
   {

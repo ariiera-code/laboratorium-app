@@ -37,8 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::post('upload', [UploadController::class, 'store']);
 
-Route::get('/show/{slug}', "PLacesController@show");
-Route::get('/edit/{slug}', "PLacesController@edit");
+Route::get('/show/{slug}', "PlacesController@show");
+Route::get('/edit/{slug}', "PlacesController@edit");
 
 Route::get('/show/{slug}', "LabsController@show");
 Route::get('/edit/{slug}', "LabsController@edit");

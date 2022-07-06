@@ -18,14 +18,9 @@ class Place extends Model
     'slug',
   ];
 
-
   public function user()
   {
     return $this->belongsTo(User::class);
   }
 
-  public function labs()
-  {
-    return $this->hasMany(Lab::class);
-  }
 }

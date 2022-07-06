@@ -1,62 +1,91 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Laboratorium App
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Project Image](https://user-images.githubusercontent.com/73767596/160276193-8ec79926-7b2c-4674-8d23-1e0d3669204e.png)
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Table of Contents
+You're sections headers will be used to reference location of destination.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Description](#description)
+- [License](#license)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Description
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Laboratorium App is an application that functions to manage web-based assets at the Semarang State Polytechnic using Laravel technology as the backend framework and TailwindCSS as the frontend framework. In this web application, an authentication system is implemented with user access level using Laravel Jetstream.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### Technologies
 
-## Laravel Sponsors
+- Laravel 8
+- TailwindCSS
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+#### Screenshot as Admin
 
-### Premium Partners
+- Home
+![Home](https://user-images.githubusercontent.com/73767596/160276193-8ec79926-7b2c-4674-8d23-1e0d3669204e.png)
+- Register
+![Register](https://user-images.githubusercontent.com/73767596/160276768-dbadcc59-2bd9-41d9-a630-9416ca7bccf0.png)
+- Login
+![Home](https://user-images.githubusercontent.com/73767596/160276702-c0e1f8b5-c493-4ea8-bffd-1de28d55d7ef.png)
+- Lab list
+![Home](https://user-images.githubusercontent.com/73767596/160277234-90aa8595-7d61-4bb8-a951-201b6391c3bf.png)
+- Create new lab
+![Home](https://user-images.githubusercontent.com/73767596/160277189-12172003-1838-4cf4-ac42-b6120c93fe42.png)
+- Lab details
+![Home](https://user-images.githubusercontent.com/73767596/160277400-242873f5-6ba8-4ab1-ba1f-4079d8bab59e.png)
+- Edit lab
+![Home](https://user-images.githubusercontent.com/73767596/160277520-d44ae7c3-3ea0-4c4d-a783-1642675aa9e7.png)
+- Add new items
+![Home](https://user-images.githubusercontent.com/73767596/160277322-87be4f86-6af3-4af3-a595-1b0c6098d085.png)
+- Edit items
+![Home](https://user-images.githubusercontent.com/73767596/160277485-3f585cc1-0335-4367-88ad-9ba09c85a202.png)
+- User list
+![Home](https://user-images.githubusercontent.com/73767596/160277542-e32b36ff-1f9d-44fe-b51c-b451a28f6a6f.png)
+- Create new user
+![Home](https://user-images.githubusercontent.com/73767596/160277565-7b4bc3f3-49f6-4af3-9592-9893d6c5eab2.png)
+- Edit user
+![Home](https://user-images.githubusercontent.com/73767596/160277596-11c2fbb8-ccac-47f0-a535-280d61f18c60.png)
+- Edit profile
+![Home](https://user-images.githubusercontent.com/73767596/160277634-f52f3c41-5a29-4a1a-9e49-c81d859af18c.png)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+#### Screenshot as User
 
-## Contributing
+- Lab list
+![Home](https://user-images.githubusercontent.com/73767596/160277725-24413875-103f-44c8-a5e1-89721bd2207e.png)
+- Lab details
+![Home](https://user-images.githubusercontent.com/73767596/160277765-5a08ef85-0403-4d6d-9b23-f00852d6491a.png)
+- Access Denied
+![Home](https://user-images.githubusercontent.com/73767596/160277785-8ba629cb-1c22-4336-91d6-742b94f36e14.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+[Back To The Top](#laboratorium-app)
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+MIT License
+
+Copyright (c) [2021] [Nibros Ari Wibowo]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+[Back To The Top](#laboratorium-app)
